@@ -16,14 +16,15 @@ public class WeatherFormatter {
     /**
      *
      */
-    private static Logger log = LogManager.getLogger(WeatherFormatter.class);
+    private static final Logger LOG = LogManager
+            .getLogger(WeatherFormatter.class);
 
     /**
      * @param weather input
      * @return the formated output
      */
     public final String format(final Weather weather) {
-        log.info("Formatting Weather Data");
+        LOG.info("Formatting Weather Data");
         Reader reader = new InputStreamReader(
                 getClass().getClassLoader().getResourceAsStream("output.vm"));
         VelocityContext context = new VelocityContext();

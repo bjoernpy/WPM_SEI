@@ -5,5 +5,6 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="Weather.java" checks="*"/>
+    <suppress files="*.java" checks=".*"/>
+    <suppress files=".*[\\/]src[\\/].*.*" checks="Javadoc"/>
 </suppressions>

@@ -17,7 +17,7 @@ public class DataRetriever {
     /**
      *
      */
-    private static Logger log = LogManager.getLogger(DataRetriever.class);
+    private static final Logger LOG = LogManager.getLogger(DataRetriever.class);
 
     /**
      * @param city the city we want the weather data
@@ -25,16 +25,16 @@ public class DataRetriever {
      * @throws Exception because of URLConnection
      */
     public final InputStream retrieve(final String city) throws Exception {
-        log.info("Retrieving Weather Data");
+        LOG.info("Retrieving Weather Data");
         String url = "http://api.apixu.com/v1/current.xml?"
                 + "key=eb3ca015e1754086a4e12844182211&q=" + city;
         URLConnection conn = null;
         try {
             conn = new URL(url).openConnection();
         } catch (MalformedURLException e) {
-            log.error("Bad URL. \n" + e.getMessage(), e);
+            LOG.error("Bad URL. \n" + e.getMessage(), e);
         } catch (IOException e) {
-            log.error("IO Exception while trying to retrieve weatherdata"
+            LOG.error("IO Exception while trying to retrieve weatherdata"
                     + e.getMessage(), e);
         }
         return conn.getInputStream();

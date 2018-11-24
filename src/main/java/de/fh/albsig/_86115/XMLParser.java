@@ -18,19 +18,19 @@ public class XMLParser {
     /**
      *
      */
-    private static Logger log = LogManager.getLogger(XMLParser.class);
+    private static final Logger LOG = LogManager.getLogger(XMLParser.class);
 
     /**
      * @param inputStream the weather Data
      * @return a Weather Element
      * @throws Exception because of inputStream or something like that
      */
-    public final Weather parse(final InputStream inputStream) throws Exception {
+    public Weather parse(final InputStream inputStream) throws Exception {
         Weather weather = new Weather();
-        log.info("Creating XML Reader");
+        LOG.info("Creating XML Reader");
         SAXReader xmlReader = createXmlReader();
         Document doc = xmlReader.read(inputStream);
-        log.info("Parsing XML Response");
+        LOG.info("Parsing XML Response");
         weather.setCity(doc.valueOf("/root/location/name"));
         weather.setRegion(doc.valueOf("/root/location/region"));
         weather.setCountry(doc.valueOf("/root/location/country"));

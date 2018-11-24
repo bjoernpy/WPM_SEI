@@ -13,7 +13,7 @@ public class Main {
     /**
      *
      */
-    private static Logger log = LogManager.getLogger(Main.class);
+    private static final Logger LOG = LogManager.getLogger(Main.class);
     /**
      *
      */
@@ -23,17 +23,22 @@ public class Main {
      * @param args the first arg is the city
      * @throws Exception has to be there
      */
-    public static void main(final String[] args) throws Exception {
+    public static void main(final String[] args) {
 
         // Read city from command line
         // if no city is entered Albstadt is set as standard
         String city = "Albstadt";
         try {
             city = args[0];
-        } catch (Exception e) {
-            log.error("Kein Argument beim Aufruf der Main übergeben. "
+        } catch (ArrayIndexOutOfBoundsException e) {
+            LOG.error("Kein Argument beim Aufruf der Main übergeben. "
                     + "Albstadt wird als Standard genommen. \n"
                     + e.getMessage(), e);
+        } catch (Exception e) {
+            LOG.error("Error beim Aufruf der Main. \n" + e.getMessage(), e);
+            LOG.info(
+                    "Fehler beim Aufruf der Main, für weitere Informationen siehe LOG");
+            return;
         }
         // Start the program
         new Main(city).start();
@@ -55,7 +60,7 @@ public class Main {
         try {
             dataIn = new DataRetriever().retrieve(city);
         } catch (Exception e) {
-            log.error(
+            LOG.error(
                     "Error while trying to retrieve data from the webservice. \n"
                             + e.getMessage(),
                     e);
@@ -65,10 +70,10 @@ public class Main {
         try {
             weather = new XMLParser().parse(dataIn);
         } catch (Exception e) {
-            log.error("Error while trying to parse the weather data xml. \n"
+            LOG.error("Error while trying to parse the weather data xml. \n"
                     + e.getMessage() + e);
         }
         // Format (Print) Data
-        log.info(new WeatherFormatter().format(weather));
+        LOG.info(new WeatherFormatter().format(weather));
     }
 }
