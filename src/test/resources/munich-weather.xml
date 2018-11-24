@@ -1,0 +1,39 @@
+<root>
+	<location>
+		<name>München</name>
+		<region>Bayern</region>
+		<country>Deutschland</country>
+		<lat>48.15</lat>
+		<lon>11.58</lon>
+		<tz_id>Europe/Berlin</tz_id>
+		<localtime_epoch>1542980365</localtime_epoch>
+		<localtime>2018-11-23 14:39</localtime>
+	</location>
+	<current>
+		<last_updated_epoch>1542979809</last_updated_epoch>
+		<last_updated>2018-11-23 14:30</last_updated>
+		<temp_c>2</temp_c>
+		<temp_f>35.6</temp_f>
+		<is_day>1</is_day>
+		<condition>
+			<text>Mist</text>
+			<icon>//cdn.apixu.com/weather/64x64/day/143.png</icon>
+			<code>1030</code>
+		</condition>
+		<wind_mph>9.4</wind_mph>
+		<wind_kph>15.1</wind_kph>
+		<wind_degree>70</wind_degree>
+		<wind_dir>ENE</wind_dir>
+		<pressure_mb>1018</pressure_mb>
+		<pressure_in>30.5</pressure_in>
+		<precip_mm>0</precip_mm>
+		<precip_in>0</precip_in>
+		<humidity>100</humidity>
+		<cloud>100</cloud>
+		<feelslike_c>-2</feelslike_c>
+		<feelslike_f>28.5</feelslike_f>
+		<vis_km>2.5</vis_km>
+		<vis_miles>1</vis_miles>
+		<uv>1</uv>
+	</current>
+</root>
